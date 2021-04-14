@@ -33,6 +33,6 @@ static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 // }
 
 #[wasm_bindgen]
-pub fn parse(buff: Vec<u8>) -> String {
-    parser::parse(buff)
+pub fn parse(buff: Vec<u8>) -> JsValue {
+    JsValue::from_serde(&parser::parse(buff)).unwrap()
 }
